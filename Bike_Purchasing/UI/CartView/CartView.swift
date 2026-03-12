@@ -1,125 +1,177 @@
-struct CartView: View {
-    @EnvironmentObject var viewModel: TabbarViewModel
-    @Environment(\.managedObjectContext) var viewContext
-    
-    var body: some View {
-        ZStack {
-            ScrollView {
-                orderDetails()
-                ForEach(viewModel.cartData, id: \.id) { item in
-                    contentView(model: item)
-                }
-            }
-        }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-    }
+import SwiftUI
+import SwiftData
 
-    @ViewBuilder private func contentView(model: LocalStorage) -> some View {
-        
-        VStack(alignment: .leading) {
-            HStack(alignment: .top) {
-                imageView(model: model)
-                itemsDetailsView(model: model)
-                
-                Spacer()
-                updateItemsView(model: model)
-            }
+ struct CartView: View {
+     @StateObject var viewModel: CartVM = CartVM()
+     @Environment(\.modelContext) var viewContext
+     @EnvironmentObject var router: NavigationRouter
+     @Query var cartData: [CartModel]
+     
+     var body: some View {
+         ZStack {
+             VStack {
+                 headerView
+                 if cartData.isEmpty {
+                     Text("Item Not Found!")
+                         .font(.system(size: 24, weight: .bold))
+                         .frame(maxWidth: .infinity, maxHeight: .infinity)
+                 } else {
+                     ScrollView {
+                         LazyVStack(spacing: 24) {
+                             ForEach(cartData, id: \.id) { item in
+                                 contentView(model: item)
+                             }
+                             orderDetails()
+                             placeOrderBtnView
+                         }
+                     }
+
+                 }
+             }
+         }
+         .frame(maxWidth: .infinity, maxHeight: .infinity)
+         .background(
+             Color(hex: "#B3CEE5").opacity(0.2)
+                 .ignoresSafeArea()
+         )
+     }
+
+     @ViewBuilder private func contentView(model: CartModel) -> some View {
+         VStack(alignment: .leading) {
+             HStack(alignment: .top) {
+                 imageView(model: model)
+                 itemsDetailsView(model: model)
+                 
+                 Spacer()
+                 updateItemsView(model: model)
+             }
+         }
+         .padding([.vertical], 10)
+         .background(Color.white
+             .cornerRadius(10)
+             .shadow(color: .black.opacity(0.5), radius: 2)
+         )
+         .padding([.vertical, .horizontal], 10)
+     }
+     
+     @ViewBuilder private func itemsDetailsView(model: CartModel) -> some View {
+         VStack(alignment: .leading) {
+             Text(model.bikeName ?? "")
+                 .font(.system(size: 14, weight: .semibold))
+             HStack {
+                 Text("Price: ")
+                     .font(.system(size: 18, weight: .bold))
+                 + Text("\(viewModel.formatDecimalValue(model.price))")
+                     .font(.system(size: 14, weight: .semibold))
+             }
+             .padding(.top, 10)
+         }
+         .padding(.top, 10)
+         .padding(.leading, 10)
+     }
+     
+     @ViewBuilder private func updateItemsView(model: CartModel)  -> some View {
+         VStack(alignment: .trailing) {
+             buttonActionView(name: "bin.xmark", fGColor: .red) {
+                 viewModel.deleteData(context: viewContext, item: model)
+             }
+             .padding(.trailing, -10)
+             Spacer()
+//             HStack {
+//                 buttonActionView(name: "minus", fGColor: .black) {
+////                     let price = model.price / model.quantity
+////                     let item = ProductModel.Item(id: Int(model.id ?? ""), icon: model.icon ?? "", name: model.name, price: price)
+////                     if model.quantity > 1 {
+////                         viewModel.addCart(context: viewContext, item: item, price: -price, quantity: -1.0)
+////                     }
+//                 }
+//
+//                 Text("\(viewModel.formatDecimalValue(model.quantity))")
+//                     .frame(width: 40, height: 30)
+//                     .background(Color.white
+//                         .cornerRadius(5)
+//                         .shadow(color: .black.opacity(0.2), radius: 1)
+//                     )
+//
+//                 buttonActionView(name: "plus.app", fGColor: .black) {
+////                     let price = model.price / model.quantity
+////                     let item = ProductModel.Item(id: Int(model.id ?? ""), icon: model.icon ?? "", name: model.name, price: price)
+////                     viewModel.addCart(context: viewContext, item: item, price: price, quantity: 1.0)
+//                 }
+//             }
+         }
+         .padding(.trailing, 30)
+     }
+     
+     @ViewBuilder private func buttonActionView(name: String, fGColor: Color, onTaped: @escaping (() -> Void)) -> some View {
+         Button {
+             onTaped()
+         } label: {
+             Image(systemName: name)
+                 .foregroundColor(fGColor)
+                 .frame(width: 20, height: 30)
+         }
+     }
+     
+     @ViewBuilder private func imageView(model: CartModel) -> some View {
+         ZStack {
+             AsyncImage(url: URL(string: model.image.first ?? "")) { image in
+                 image
+                     .resizable()
+                     .frame(width: 100, height: 100)
+                   //  .cornerRadius(10)
+             } placeholder: {
+                 ProgressView()
+             }
+             .cornerRadius(10)
+         }
+         .frame(width: 120, height: 120)
+         .background(
+             Color.white
+                 .cornerRadius(10)
+                 .shadow(color: .black.opacity(0.5), radius: 5))
+         .padding(.leading)
+     }
+     
+     
+     @ViewBuilder private func orderDetails() -> some View {
+         let totalPrice = cartData
+             .map { Double($0.price.replacingOccurrences(of: ",", with: "")) ?? 0 }
+             .reduce(0, +)
+         VStack(spacing: 20) {
+             Text("Order Details: ")
+                 .font(.system(size: 18, weight: .bold))
+             Text("Total Price: \(viewModel.formatDecimalValue(totalPrice))")
+         }
+     }
+ }
+
+extension CartView {
+    @ViewBuilder
+    var headerView: some View {
+        HStack {
+            Text("Cart")
+                .font(.system(size: 24, weight: .bold))
         }
-        .padding([.vertical], 10)
-        .background(Color.white
-            .cornerRadius(10)
-            .shadow(color: .black.opacity(0.5), radius: 2)
-        )
-        .padding([.vertical, .horizontal], 10)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .padding(.horizontal, 16)
     }
-    
-    @ViewBuilder private func itemsDetailsView(model: LocalStorage) -> some View {
-        VStack(alignment: .leading) {
-            Text(model.name ?? "")
-                .font(.fontSFProText(ofSize: 14, weight: .semibold))
-            HStack {
-                Text("Price: ")
-                    .font(.fontSFProText(ofSize: 18, weight: .bold))
-                + Text("\(viewModel.formatDecimalValue(model.price))")
-                    .font(.fontSFProText(ofSize: 14, weight: .semibold))
-            }
-            .padding(.top, 10)
-        }
-        .padding(.top, 10)
-        .padding(.leading, 10)
-    }
-    
-    @ViewBuilder private func updateItemsView(model: LocalStorage)  -> some View {
-        VStack(alignment: .trailing) {
-            buttonActionView(name: "bin.xmark", fGColor: .red) {
-                viewModel.deleteData(context: viewContext, item: model)
-            }
-            .padding(.trailing, -10)
-            Spacer()
-            HStack {
-                buttonActionView(name: "minus", fGColor: .black) {
-                    let price = model.price / model.quantity
-                    let item = ProductModel.Item(id: Int(model.id ?? ""), icon: model.icon ?? "", name: model.name, price: price)
-                    if model.quantity > 1 {
-                        viewModel.addCart(context: viewContext, item: item, price: -price, quantity: -1.0)
-                    }
-                }
-                
-                Text("\(viewModel.formatDecimalValue(model.quantity))")
-                    .frame(width: 40, height: 30)
-                    .background(Color.white
-                        .cornerRadius(5)
-                        .shadow(color: .black.opacity(0.2), radius: 1)
-                    )
-                
-                buttonActionView(name: "plus.app", fGColor: .black) {
-                    let price = model.price / model.quantity
-                    let item = ProductModel.Item(id: Int(model.id ?? ""), icon: model.icon ?? "", name: model.name, price: price)
-                    viewModel.addCart(context: viewContext, item: item, price: price, quantity: 1.0)
-                }
-            }
-        }
-        .padding(.trailing, 30)
-    }
-    
-    @ViewBuilder private func buttonActionView(name: String, fGColor: Color, onTaped: @escaping (() -> Void)) -> some View {
+}
+
+extension CartView {
+    var placeOrderBtnView: some View {
         Button {
-            onTaped()
+            router.path.append(.orderPlacedAnimated)
         } label: {
-            Image(systemName: name)
-                .foregroundColor(fGColor)
-        }
-    }
-    
-
-    
-    
-    @ViewBuilder private func imageView(model: LocalStorage) -> some View {
-        ZStack {
-            AsyncImage(url: URL(string: model.icon ?? "")) { image in
-                image
-                    .resizable()
-                    .frame(width: 100, height: 100)
-                  //  .cornerRadius(10)
-            } placeholder: {
-                ProgressView()
-            }
-            .cornerRadius(10)
-        }
-        .frame(width: 120, height: 120)
-        .background(
-            Color.white
-                .cornerRadius(10)
-                .shadow(color: .black.opacity(0.5), radius: 5))
-        .padding(.leading)
-    }
-    
-    
-    @ViewBuilder private func orderDetails() -> some View {
-        let totalPrice = viewModel.cartData.map({$0.price}).reduce(0, +)
-        VStack {
-            Text("Order Details: ")
-            Text("Total Price: \(viewModel.formatDecimalValue(totalPrice))")
+            Text("Place Order")
+                .font(.system(size: 16, weight: .bold))
+                .foregroundColor(Color.white)
+                .padding(.vertical, 14)
+                .padding(.horizontal, 26)
+                .background(
+                    Color.orange.opacity(0.6)
+                        .cornerRadius(12)
+                )
         }
     }
 }

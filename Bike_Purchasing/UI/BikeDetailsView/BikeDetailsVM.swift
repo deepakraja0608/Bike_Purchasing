@@ -6,3 +6,11 @@
 //
 
 import Foundation
+
+class BikeDetailsVM: ObservableObject {
+    @Published var bike: BikeModel
+    
+    init(bike: BikeModel) {
+        self.bike = bike
+    }
+}
