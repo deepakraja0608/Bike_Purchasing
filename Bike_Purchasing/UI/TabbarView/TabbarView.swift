@@ -9,7 +9,21 @@ import SwiftUI
 
 struct TabbarView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        TabView {
+            HomeView()
+                .tabItem {
+                    Image(systemName: "house.fill")
+                    Text("Home")
+                }
+                .tag(0)
+            CartView()
+                .tabItem {
+                    Image(systemName: "cart.fill")
+                    Text("Cart")
+                }
+                .tag(1)
+        }
+        .navigationBarBackButtonHidden()
     }
 }
 

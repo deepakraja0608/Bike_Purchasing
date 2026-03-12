@@ -6,33 +6,204 @@
 	objectVersion = 77;
 	objects = {
 
-/* Begin PBXFileReference section */
-		1872E1902F19534E00A88E01 /* Bike_Purchasing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bike_Purchasing.app; sourceTree = BUILT_PRODUCTS_DIR; };
-/* End PBXFileReference section */
+/* Begin PBXBuildFile section */
+		183476622F62609B008B035B /* LoginStorageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1834763B2F62609B008B035B /* LoginStorageModel.swift */; };
+		183476642F62609B008B035B /* BikeDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183476432F62609B008B035B /* BikeDetailsView.swift */; };
+		183476652F62609B008B035B /* BikeDetailsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183476442F62609B008B035B /* BikeDetailsVM.swift */; };
+		183476662F62609B008B035B /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183476462F62609B008B035B /* CartView.swift */; };
+		183476672F62609B008B035B /* CartVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183476472F62609B008B035B /* CartVM.swift */; };
+		183476682F62609B008B035B /* OrderPlacedAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183476492F62609B008B035B /* OrderPlacedAnimationView.swift */; };
+		183476692F62609B008B035B /* BikeRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1834764B2F62609B008B035B /* BikeRowView.swift */; };
+		1834766A2F62609B008B035B /* HomeScreenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1834764C2F62609B008B035B /* HomeScreenModel.swift */; };
+		1834766B2F62609B008B035B /* HomeScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1834764D2F62609B008B035B /* HomeScreenView.swift */; };
+		1834766C2F62609B008B035B /* HomeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1834764E2F62609B008B035B /* HomeVM.swift */; };
+		1834766D2F62609B008B035B /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183476532F62609B008B035B /* LoginView.swift */; };
+		1834766E2F62609B008B035B /* LoginVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183476542F62609B008B035B /* LoginVM.swift */; };
+		1834766F2F62609B008B035B /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183476562F62609B008B035B /* RegisterView.swift */; };
+		183476702F62609B008B035B /* RegisterVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183476572F62609B008B035B /* RegisterVM.swift */; };
+		183476712F62609B008B035B /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1834765A2F62609B008B035B /* ProfileView.swift */; };
+		183476722F62609B008B035B /* TabbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1834765C2F62609B008B035B /* TabbarView.swift */; };
+		183476732F62609B008B035B /* Bike_PurchasingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183476602F62609B008B035B /* Bike_PurchasingApp.swift */; };
+		183476752F62609B008B035B /* bikes.json in Resources */ = {isa = PBXBuildFile; fileRef = 183476402F62609B008B035B /* bikes.json */; };
+		183476772F62609B008B035B /* success_check.json in Resources */ = {isa = PBXBuildFile; fileRef = 183476512F62609B008B035B /* success_check.json */; };
+		183476782F62609B008B035B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1834765F2F62609B008B035B /* Assets.xcassets */; };
+		1887202C2F6327980089FCBB /* BikeDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1887202B2F6327980089FCBB /* BikeDetailsModel.swift */; };
+		1887202F2F6329C50089FCBB /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 1887202E2F6329C50089FCBB /* Lottie */; };
+/* End PBXBuildFile section */
 
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		1872E1922F19534E00A88E01 /* Bike_Purchasing */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = Bike_Purchasing;
-			sourceTree = "<group>";
-		};
-/* End PBXFileSystemSynchronizedRootGroup section */
+/* Begin PBXFileReference section */
+		1834763B2F62609B008B035B /* LoginStorageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginStorageModel.swift; sourceTree = "<group>"; };
+		1834763F2F62609B008B035B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = en; path = en.lproj/bikes.json; sourceTree = "<group>"; };
+		183476432F62609B008B035B /* BikeDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BikeDetailsView.swift; sourceTree = "<group>"; };
+		183476442F62609B008B035B /* BikeDetailsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BikeDetailsVM.swift; sourceTree = "<group>"; };
+		183476462F62609B008B035B /* CartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
+		183476472F62609B008B035B /* CartVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartVM.swift; sourceTree = "<group>"; };
+		183476492F62609B008B035B /* OrderPlacedAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderPlacedAnimationView.swift; sourceTree = "<group>"; };
+		1834764B2F62609B008B035B /* BikeRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BikeRowView.swift; sourceTree = "<group>"; };
+		1834764C2F62609B008B035B /* HomeScreenModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenModel.swift; sourceTree = "<group>"; };
+		1834764D2F62609B008B035B /* HomeScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenView.swift; sourceTree = "<group>"; };
+		1834764E2F62609B008B035B /* HomeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVM.swift; sourceTree = "<group>"; };
+		183476512F62609B008B035B /* success_check.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = success_check.json; sourceTree = "<group>"; };
+		183476532F62609B008B035B /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		183476542F62609B008B035B /* LoginVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVM.swift; sourceTree = "<group>"; };
+		183476562F62609B008B035B /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		183476572F62609B008B035B /* RegisterVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVM.swift; sourceTree = "<group>"; };
+		1834765A2F62609B008B035B /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		1834765C2F62609B008B035B /* TabbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarView.swift; sourceTree = "<group>"; };
+		1834765F2F62609B008B035B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		183476602F62609B008B035B /* Bike_PurchasingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bike_PurchasingApp.swift; sourceTree = "<group>"; };
+		1872E1902F19534E00A88E01 /* Bike_Purchasing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bike_Purchasing.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1887202B2F6327980089FCBB /* BikeDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BikeDetailsModel.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		1872E18D2F19534E00A88E01 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1887202F2F6329C50089FCBB /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1834763C2F62609B008B035B /* LocalStorage */ = {
+			isa = PBXGroup;
+			children = (
+				1834763B2F62609B008B035B /* LoginStorageModel.swift */,
+			);
+			path = LocalStorage;
+			sourceTree = "<group>";
+		};
+		183476412F62609B008B035B /* MockResponse */ = {
+			isa = PBXGroup;
+			children = (
+				183476402F62609B008B035B /* bikes.json */,
+			);
+			path = MockResponse;
+			sourceTree = "<group>";
+		};
+		183476452F62609B008B035B /* BikeDetailsView */ = {
+			isa = PBXGroup;
+			children = (
+				183476432F62609B008B035B /* BikeDetailsView.swift */,
+				183476442F62609B008B035B /* BikeDetailsVM.swift */,
+				1887202B2F6327980089FCBB /* BikeDetailsModel.swift */,
+			);
+			path = BikeDetailsView;
+			sourceTree = "<group>";
+		};
+		183476482F62609B008B035B /* CartView */ = {
+			isa = PBXGroup;
+			children = (
+				183476462F62609B008B035B /* CartView.swift */,
+				183476472F62609B008B035B /* CartVM.swift */,
+			);
+			path = CartView;
+			sourceTree = "<group>";
+		};
+		1834764A2F62609B008B035B /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				183476492F62609B008B035B /* OrderPlacedAnimationView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		183476502F62609B008B035B /* HomeScreen */ = {
+			isa = PBXGroup;
+			children = (
+				1834764B2F62609B008B035B /* BikeRowView.swift */,
+				1834764C2F62609B008B035B /* HomeScreenModel.swift */,
+				1834764D2F62609B008B035B /* HomeScreenView.swift */,
+				1834764E2F62609B008B035B /* HomeVM.swift */,
+			);
+			path = HomeScreen;
+			sourceTree = "<group>";
+		};
+		183476522F62609B008B035B /* LottieJson */ = {
+			isa = PBXGroup;
+			children = (
+				183476512F62609B008B035B /* success_check.json */,
+			);
+			path = LottieJson;
+			sourceTree = "<group>";
+		};
+		183476552F62609B008B035B /* LoginView */ = {
+			isa = PBXGroup;
+			children = (
+				183476532F62609B008B035B /* LoginView.swift */,
+				183476542F62609B008B035B /* LoginVM.swift */,
+			);
+			path = LoginView;
+			sourceTree = "<group>";
+		};
+		183476582F62609B008B035B /* RegisterView */ = {
+			isa = PBXGroup;
+			children = (
+				183476562F62609B008B035B /* RegisterView.swift */,
+				183476572F62609B008B035B /* RegisterVM.swift */,
+			);
+			path = RegisterView;
+			sourceTree = "<group>";
+		};
+		183476592F62609B008B035B /* OnboardingFlow */ = {
+			isa = PBXGroup;
+			children = (
+				183476552F62609B008B035B /* LoginView */,
+				183476582F62609B008B035B /* RegisterView */,
+			);
+			path = OnboardingFlow;
+			sourceTree = "<group>";
+		};
+		1834765B2F62609B008B035B /* ProfileView */ = {
+			isa = PBXGroup;
+			children = (
+				1834765A2F62609B008B035B /* ProfileView.swift */,
+			);
+			path = ProfileView;
+			sourceTree = "<group>";
+		};
+		1834765D2F62609B008B035B /* TabbarView */ = {
+			isa = PBXGroup;
+			children = (
+				1834765C2F62609B008B035B /* TabbarView.swift */,
+			);
+			path = TabbarView;
+			sourceTree = "<group>";
+		};
+		1834765E2F62609B008B035B /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				183476452F62609B008B035B /* BikeDetailsView */,
+				183476482F62609B008B035B /* CartView */,
+				1834764A2F62609B008B035B /* Components */,
+				183476502F62609B008B035B /* HomeScreen */,
+				183476522F62609B008B035B /* LottieJson */,
+				183476592F62609B008B035B /* OnboardingFlow */,
+				1834765B2F62609B008B035B /* ProfileView */,
+				1834765D2F62609B008B035B /* TabbarView */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		183476612F62609B008B035B /* Bike_Purchasing */ = {
+			isa = PBXGroup;
+			children = (
+				1834763C2F62609B008B035B /* LocalStorage */,
+				183476412F62609B008B035B /* MockResponse */,
+				1834765E2F62609B008B035B /* UI */,
+				1834765F2F62609B008B035B /* Assets.xcassets */,
+				183476602F62609B008B035B /* Bike_PurchasingApp.swift */,
+			);
+			path = Bike_Purchasing;
+			sourceTree = "<group>";
+		};
 		1872E1872F19534E00A88E01 = {
 			isa = PBXGroup;
 			children = (
-				1872E1922F19534E00A88E01 /* Bike_Purchasing */,
+				183476612F62609B008B035B /* Bike_Purchasing */,
 				1872E1912F19534E00A88E01 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -60,11 +231,9 @@
 			);
 			dependencies = (
 			);
-			fileSystemSynchronizedGroups = (
-				1872E1922F19534E00A88E01 /* Bike_Purchasing */,
-			);
 			name = Bike_Purchasing;
 			packageProductDependencies = (
+				1887202E2F6329C50089FCBB /* Lottie */,
 			);
 			productName = Bike_Purchasing;
 			productReference = 1872E1902F19534E00A88E01 /* Bike_Purchasing.app */;
@@ -94,6 +263,9 @@
 			);
 			mainGroup = 1872E1872F19534E00A88E01;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				1887202D2F6329C50089FCBB /* XCRemoteSwiftPackageReference "lottie-ios" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 1872E1912F19534E00A88E01 /* Products */;
 			projectDirPath = "";
@@ -109,6 +281,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				183476752F62609B008B035B /* bikes.json in Resources */,
+				183476772F62609B008B035B /* success_check.json in Resources */,
+				183476782F62609B008B035B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,10 +294,39 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				183476622F62609B008B035B /* LoginStorageModel.swift in Sources */,
+				183476642F62609B008B035B /* BikeDetailsView.swift in Sources */,
+				183476652F62609B008B035B /* BikeDetailsVM.swift in Sources */,
+				183476662F62609B008B035B /* CartView.swift in Sources */,
+				183476672F62609B008B035B /* CartVM.swift in Sources */,
+				1887202C2F6327980089FCBB /* BikeDetailsModel.swift in Sources */,
+				183476682F62609B008B035B /* OrderPlacedAnimationView.swift in Sources */,
+				183476692F62609B008B035B /* BikeRowView.swift in Sources */,
+				1834766A2F62609B008B035B /* HomeScreenModel.swift in Sources */,
+				1834766B2F62609B008B035B /* HomeScreenView.swift in Sources */,
+				1834766C2F62609B008B035B /* HomeVM.swift in Sources */,
+				1834766D2F62609B008B035B /* LoginView.swift in Sources */,
+				1834766E2F62609B008B035B /* LoginVM.swift in Sources */,
+				1834766F2F62609B008B035B /* RegisterView.swift in Sources */,
+				183476702F62609B008B035B /* RegisterVM.swift in Sources */,
+				183476712F62609B008B035B /* ProfileView.swift in Sources */,
+				183476722F62609B008B035B /* TabbarView.swift in Sources */,
+				183476732F62609B008B035B /* Bike_PurchasingApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		183476402F62609B008B035B /* bikes.json */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1834763F2F62609B008B035B /* en */,
+			);
+			name = bikes.json;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		1872E1992F19534F00A88E01 /* Debug */ = {
@@ -253,6 +457,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = MotoTrade;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -280,6 +485,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = MotoTrade;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -320,6 +526,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1887202D2F6329C50089FCBB /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.6.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1887202E2F6329C50089FCBB /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1887202D2F6329C50089FCBB /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1872E1882F19534E00A88E01 /* Project object */;
 }
